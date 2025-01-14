@@ -7,7 +7,9 @@
  */
 
 // undeclaredVar;
+let undeclaredVar;
 // nullVar ;
+let nullVar = null;
 
 // export 를 수정하지 마세요.
 export { undeclaredVar, nullVar };
