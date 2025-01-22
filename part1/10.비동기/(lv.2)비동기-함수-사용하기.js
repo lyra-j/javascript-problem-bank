@@ -21,7 +21,11 @@
 // }
 
 // TODO: getUsers 함수를 작성하세요.
-async function getUsers(fetchUsers) {}
+async function getUsers(fetchUsers) {
+  const users = await fetchUsers();
+  return users.map((user) => user.name);
+}
+// 화살표함수 괄호 때문에도 정답으로 인정 안해 주나요..ㅠㅠ 한참을 고민했넹
 
 // export를 수정하지 마세요.
 export { getUsers };
