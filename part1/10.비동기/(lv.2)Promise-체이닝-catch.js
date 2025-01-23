@@ -11,8 +11,19 @@
  * @returns {Promise<any>}
  */
 
+// 문제 이해가 시급하구만
 // TODO: getDataWithFallback 함수를 작성하세요.
-async function getDataWithFallback(primary, fallback) {}
+async function getDataWithFallback(primary, fallback) {
+  try {
+    return await primary();
+  } catch (error) {
+    try {
+      return await fallback();
+    } catch (fallbackError) {
+      throw fallbackError;
+    }
+  }
+}
 
 // export를 수정하지 마세요.
 export { getDataWithFallback };
