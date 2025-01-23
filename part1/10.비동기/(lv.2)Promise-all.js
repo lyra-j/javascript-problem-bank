@@ -10,8 +10,17 @@
  * @returns {Promise<[any, any]>}
  */
 
+// 또 리턴이야..ㅠ
 // TODO: parallelRequests 함수를 작성하세요.
-function parallelRequests(promise1, promise2) {}
+function parallelRequests(promise1, promise2) {
+  return Promise.all([promise1, promise2])
+    .then(([res1, res2]) => {
+      return [res1, res2];
+    })
+    .catch((error) => {
+      throw error;
+    });
+}
 
 // export를 수정하지 마세요.
 export { parallelRequests };
