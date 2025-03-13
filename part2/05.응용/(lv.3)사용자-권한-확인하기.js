@@ -13,7 +13,16 @@
  * @returns {boolean}
  */
 
-function checkAccess(user, requiredRole) {}
+function checkAccess(user, requiredRole) {
+  // role의 권한등급 설정
+  const roles = {
+    user: 1,
+    manager: 2,
+    admin: 3,
+  };
+  // user객체의 role과 >= requiredRole 비교
+  return roles[user.role] >= roles[requiredRole]
+}
 
 // export를 수정하지 마세요.
 export { checkAccess };
