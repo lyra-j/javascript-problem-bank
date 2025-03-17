@@ -10,7 +10,20 @@
  */
 
 // TODO: debounce 함수를 작성하세요.
-function debounce(func, delay) {}
+function debounce(func, delay) {
+  let timerId;
+  return function (...args) {
+    // 이전 타이머가 설정되어 있다면 취소
+    if (timerId) {
+      clearTimeout(timerId);
+    }
+    // 새로 타이머 설정
+    timerId = setTimeout(() => {
+      //apply로 현재의 this와 args(인자)를 그대로 전달
+      func.apply(this, args);
+    }, delay);
+  };
+}
 
 // export 를 수정하지 마세요.
 export { debounce };
