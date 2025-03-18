@@ -9,7 +9,21 @@
  * @returns {Function}
  */
 
-function once(fn) {}
+function once(fn) {
+  
+  let called = false; // 함수가 처음 실행되었는지 여부 확인
+  let result;
+
+  // 전달받은 인자들을 사용하여 fn 실행
+  return function (...args) {
+    // fn이 아직 실행되지 않았다면, 실행 후 결과 저장
+    if (!called) {
+      result = fn.apply(this, args);
+      called = true; // fn이 더이상 실행되지 않도록함
+    }
+    return result;
+  };
+}
 
 // export를 수정하지 마세요.
 export { once };
