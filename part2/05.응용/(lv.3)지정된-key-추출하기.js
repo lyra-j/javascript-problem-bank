@@ -11,7 +11,16 @@
  * @returns {object}
  */
 
-function pickKeys(obj, keys) {}
+function pickKeys(obj, keys) {
+  const result = {}
+
+  for(const key of keys){
+    if(Object.hasOwn(obj, key)){
+      result[key] = obj[key]
+    }
+  }
+  return result
+}
 
 // export 를 수정하지 마세요.
 export { pickKeys };
